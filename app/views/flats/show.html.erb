@@ -1,0 +1,10 @@
+<div class="flat-details">
+  <h2><%= @flat.name %></h2>
+  <p><%= @flat.address %></p>
+  <p><%= @flat.description %></p>
+  <p><%= @flat.price_per_night %> per night</p>
+  <p>Guests: <%= @flat.number_of_guests %></p>
+  <!-- Add any desired icons or other information here -->
+</div>
+
+<%= link_to "Edit", edit_flat_path(@flat) %>
