@@ -1,3 +1,19 @@
+<%= form_with(url: flats_path, method: :get, local: true) do |form| %>
+  <div class="form-group">
+   <%= form.text_field :query, value: params[:query], placeholder: "Search...", class: "form-control" %>
+  </div>
+  <%= form.submit "Search", class: "btn btn-primary" %>
+<% end %>
+
+<% if @results_count %>
+  <% if @results_count > 0 %>
+    <p>We found <%= @results_count %> apartment(s) that match your search.</p>
+  <% else %>
+    <p>No apartments match your search criteria.</p>
+  <% end %>
+<% end %>
+
+
 <%= link_to "Add a New Flat", new_flat_path, class: "btn btn-primary mb-3" %>
 
 <div class="flats-container">
