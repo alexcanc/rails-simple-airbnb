@@ -33,6 +33,12 @@ class FlatsController < ApplicationController
     end
   end
 
+  def destroy
+    @flat = Flat.find(params[:id])
+    @flat.destroy
+    redirect_to flats_path, notice: 'Flat was successfully deleted.'
+  end
+
   private
 
   def flat_params

@@ -1,19 +1,44 @@
 <%= form_with(model: @flat, local: true) do |form| %>
-  <!-- fields for the flat details -->
-  <%= form.label :name %>
-  <%= form.text_field :name %>
 
-  <%= form.label :address %>
-  <%= form.text_field :address %>
+  <!-- Name of the Flat -->
+  <div class="form-group">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: 'form-control' %>
+  </div>
 
-  <%= form.label :description %>
-  <%= form.text_area :description %>
+  <!-- Address of the Flat -->
+  <div class="form-group">
+    <%= form.label :address %>
+    <%= form.text_field :address, class: 'form-control' %>
+  </div>
 
-  <%= form.label :price_per_night %>
-  <%= form.number_field :price_per_night %>
+  <!-- Description of the Flat -->
+  <div class="form-group">
+    <%= form.label :description %>
+    <%= form.text_area :description, class: 'form-control' %>
+  </div>
 
-  <%= form.label :number_of_guests %>
-  <%= form.number_field :number_of_guests %>
+  <!-- Price per Night for the Flat -->
+  <div class="form-group">
+    <%= form.label :price_per_night %>
+    <%= form.number_field :price_per_night, class: 'form-control' %>
+  </div>
 
-  <%= form.submit %>
+  <!-- Number of Guests the Flat can accommodate -->
+  <div class="form-group">
+    <%= form.label :number_of_guests %>
+    <%= form.number_field :number_of_guests, class: 'form-control' %>
+  </div>
+
+  <!-- URL of the Flat's picture -->
+  <div class="form-group">
+    <%= form.label :picture_url, "Picture URL" %>
+    <%= form.text_field :picture_url, class: 'form-control' %>
+  </div>
+
+  <!-- Submit button -->
+  <div class="form-group">
+    <%= form.submit class: 'btn btn-primary' %>
+  </div>
+
 <% end %>

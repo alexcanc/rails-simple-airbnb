@@ -3,6 +3,12 @@
 <div class="flats-container">
 <% @flats.each do |flat| %>
   <div class="flat">
+    <!-- Display the image of the flat or a placeholder if it doesn't exist -->
+    <% if flat.picture_url.present? %>
+      <%= image_tag flat.picture_url, alt: flat.name, class: 'flat-thumbnail' %>
+    <% else %>
+      <p>No picture for this flat.</p>
+    <% end %>
     <!-- Make the entire card clickable to view the description of the flat -->
     <%= link_to flat_path(flat) do %>
       <h2><%= flat.name %></h2>
@@ -12,10 +18,11 @@
       <p>Guests: <%= flat.number_of_guests %></p>
     <% end %>
 
-    <!-- Separate "Edit" link within the card -->
+    <!-- Separate "Edit" and "Remove" link within the card -->
     <%= link_to "Edit", edit_flat_path(flat), class: "btn btn-secondary" %>
+    <%= link_to "Remove", flat_path(flat),
+                data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+                class: "ms-3 text-danger" %>
   </div>
 <% end %>
 </div>
-
-```

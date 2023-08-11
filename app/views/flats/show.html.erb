@@ -1,10 +1,20 @@
 <div class="flat-details">
+  <!-- Display the image of the flat in a larger size or a placeholder if it doesn't exist -->
+  <% if @flat.picture_url.present? %>
+    <%= image_tag @flat.picture_url, alt: @flat.name, class: 'flat-image' %>
+  <% else %>
+    <p>No picture for this flat.</p>
+  <% end %>
+
   <h2><%= @flat.name %></h2>
   <p><%= @flat.address %></p>
   <p><%= @flat.description %></p>
   <p><%= @flat.price_per_night %> per night</p>
   <p>Guests: <%= @flat.number_of_guests %></p>
-  <!-- Add any desired icons or other information here -->
 </div>
 
 <%= link_to "Edit", edit_flat_path(@flat) %>
+<%= link_to "Remove", flat_path(@flat),
+                data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+                class: "ms-3 text-danger" %>
+<%= link_to 'Return to Flats', flats_path, class: 'btn btn-secondary mt-3' %>
