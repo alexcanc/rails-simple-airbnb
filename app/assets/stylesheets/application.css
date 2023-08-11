@@ -13,90 +13,115 @@
  *= require_tree .
  *= require_self
  */
- .flat {
-  border: 1px solid #E4E4E4;
-  border-radius: 10px;
-  padding: 15px;
-  margin-bottom: 20px;
-  transition: transform .2s;
-  cursor: pointer;
-  width: 300px;
+ body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f7f7f7;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
 }
 
 .flats-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;  /* This provides equal spacing between the cards */
-  gap: 20px;  /* Gap provides consistent spacing vertically and horizontally */
-  max-width: 1100px;  /* This width is set based on the card width (300px) and margins */
-  margin: 0 auto;  /* This centers the container if it's narrower than its parent */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
 }
 
-.flat:hover {
-  transform: scale(1.02);
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+.flat {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.flat-thumbnail {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
 .flat h2 {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-
-.flat p {
-  font-size: 16px;
-  color: #4A4A4A;
+  margin-top: 10px;
 }
 
 .flat-details {
+  background-color: #fff;
+  border-radius: 8px;
   padding: 20px;
-  border: 1px solid #E4E4E4;
-  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.flat-details h2 {
-  font-size: 28px;
-  margin-bottom: 20px;
-}
-
-.flat-details p {
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  max-width: 500px;
-  margin: 0 auto;
-}
-
-form label {
-  font-size: 16px;
-  margin-bottom: 5px;
-}
-
-form input[type="text"], form input[type="number"], form textarea {
-  padding: 10px;
-  border: 1px solid #E4E4E4;
-  border-radius: 5px;
-  font-size: 16px;
+.flat-image {
   width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
-form button, form input[type="submit"] {
-  padding: 10px 20px;
-  border: none;
-  background-color: #FF5A5F; /* Airbnb's signature pink-red color */
-  color: white;
-  font-size: 18px;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: background-color .2s;
+/* Form Container */
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
 }
 
-form button:hover, form input[type="submit"]:hover {
-  background-color: #FF3B4A; /* A darker shade for hover effect */
+/* Form Group */
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* Labels */
+.form-group label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    display: block;
+}
+
+/* Text Inputs and Textareas */
+.form-control {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 16px;
+    border: 1px solid #e1e1e1;
+    border-radius: 5px;
+    transition: border 0.3s;
+}
+
+.form-control:focus {
+    border-color: #ff5a5f;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(255, 90, 95, 0.2);
+}
+
+/* Submit Button */
+.btn-primary {
+    display: inline-block;
+    background-color: #ff5a5f;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #e94e77;
 }
 
 .flats-container a {
@@ -108,14 +133,77 @@ form button:hover, form input[type="submit"]:hover {
   text-decoration: none; /* adds underline when link is hovered for clarity */
 }
 
-.flat-thumbnail {
-  width: 100px;  /* Adjust as needed */
-  height: auto;
+/* General navbar styling */
+.navbar {
+  background-color: #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  padding: 15px 0;
+}
+
+.navbar-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.navbar-brand {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ff5a5f;
+  text-decoration: none;
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+}
+
+/* Button styles */
+.btn {
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-left: 10px;
+}
+
+.btn-primary {
+  background-color: #ff5a5f;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: #e94e77;
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 2px solid #ff5a5f;
+  color: #ff5a5f;
+}
+
+.btn-outline:hover {
+  background-color: #ff5a5f;
+  color: #fff;
+}
+
+/* Search form styles */
+.search-input {
+  padding: 10px;
+  border: 2px solid #e0e0e0;
+  border-radius: 4px;
+  outline: none;
   margin-right: 10px;
 }
 
-.flat-image {
-  max-width: 100%;  /* Ensure it fits the container */
-  height: auto;
-  margin-bottom: 20px;
+.search-btn {
+  margin: 0;
+}
+
+.search-input:focus {
+  border-color: #ff5a5f;
 }
